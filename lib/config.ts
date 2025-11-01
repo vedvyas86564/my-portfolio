@@ -1,49 +1,49 @@
 import type { Portfolio } from "@/lib/types";
 
 const PORTFOLIO_DATA: Portfolio = {
-	name: "Your Name Here",
+	name: "Ved Vyas",
 	headline: "Aspiring Innovator | Full-Stack Developer | AI Enthusiast",
-	bio: "A results-driven computer science student at [Your University] with a passion for building disruptive, scalable, and user-centric applications. Eager to leverage modern technologies to solve real-world problems and drive impactful change. Currently seeking high-growth internship opportunities for Summer 202X.",
+	bio: "A results-driven computer science student at University of California Los Angeles with a passion for building disruptive, scalable, and user-centric applications. Eager to leverage modern technologies to solve real-world problems and drive impactful change. Currently seeking high-growth internship opportunities for Summer 2026.",
 
 	// Your contact email
-	email: "hello@yourdomain.com",
+	email: "vedvyas07@ucla.edu",
 
 	// Add your links here
 	// Supported icons: 'GitHub', 'LinkedIn', 'Twitter', 'Blog'
 	links: [
-		{ name: "GitHub", url: "https" },
-		{ name: "LinkedIn", url: "https" },
+		{ name: "GitHub", url: "https://github.com/vedvyas86564/public" },
+		{ name: "LinkedIn", url: "https://www.linkedin.com/in/ved-vyas-4721392ab/" },
 		{ name: "Twitter", url: "https" },
 		// { name: "Blog", url: "https://yourblog.com" },
 	],
 
 	// Add your skills here
 	skills: [
-		"JavaScript", "TypeScript", "React", "Next.js", "Node.js",
-		"Python", "Go", "Tailwind CSS", "Firebase", "AWS", "Docker", "Kubernetes"
+		"Python", "C++", "Java", "Node.js",
+		"Nueral Networks", "Pytorch", "Keras", "Pandas"
 	],
 
 	// Add your projects here
 	projects: [
 		{
-			title: "Project 'Synergy'",
-			description: "A decentralized, AI-powered platform to streamline cross-functional team collaboration using a novel blockchain consensus algorithm. Built with a microservices architecture.",
-			stack: ["React", "Node.js", "MongoDB", "Tailwind CSS", "Vercel"],
-			githubLink: "",
+			title: "Mock DMV",
+			description: "Mock DMV for people to test driver's license elgibility",
+			stack: ["Java"],
+			githubLink: "https://github.com/vedvyas86564/public.git",
 			liveLink: "",
 		},
 		{
-			title: "VibeCheck",
-			description: "A mobile-first social app that uses sentiment analysis to curate positive news feeds. Leveraged serverless functions for infinite scalability and low-cost operation.",
-			stack: ["React Native", "Firebase", "Google Cloud Functions", "NLP.js"],
+			title: "Predicting Double Pendulum Motion",
+			description: "Using feedforward neural networks to preduct",
+			stack: ["Python", "Pytorch", "Sklearn", "numpy"],
 			githubLink: "",
-			liveLink: "",
+			liveLink: "https://colab.research.google.com/drive/1B_xJHcg8_eflkWbB68t5oSF1Sk11vMNa#scrollTo=dUeHp8evJZun",
 		},
 		{
-			title: "AlgoVisualizer",
+			title: "Deca++",
 			description: "A web-based tool for visualizing complex data structures and algorithms, built to help students (like me) understand core CS concepts in an interactive way.",
-			stack: ["TypeScript", "React", "D3.js"],
-			githubLink: "",
+			stack: ["HTML", "React", "JavaScript", "CSS"],
+			githubLink: "https://github.com/FontavianFreud/BellHacks-Deca2/tree/main/mhs-journalism-website",
 			liveLink: "",
 		},
 	],
@@ -58,7 +58,7 @@ const PORTFOLIO_DATA: Portfolio = {
 			description: "Selected for a highly competitive internship program. Will be joining the [Cloud/AI/Growth] team to work on high-impact, customer-facing features."
 		},
 		{
-			role: "Club President / Co-Founder",
+			role: "President",
 			company: "[Your Vibe-Coding Club Name]",
 			date: "Aug 202X - Present",
 			location: "[Your University]",
@@ -77,9 +77,9 @@ const PORTFOLIO_DATA: Portfolio = {
 	education: [
 		{
 			degree: "B.S. in Computer Science",
-			institution: "[Your University]",
-			date: "Expected May 202X",
-			note: "Minor in [e.g., Business, Data Science]"
+			institution: "University of California Los Angeles",
+			date: "Expected May 2029",
+			note: "Minor in Data Science"
 		},
 		{
 			degree: "Best 'Vibe' Hack",
