@@ -45,11 +45,13 @@ export default function Hero() {
 				</p>
 			</Reveal>
 
-			<Reveal delay={210}>
-				<p className="mt-5 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-2">
-					{portfolioData.bio}
-				</p>
-			</Reveal>
+			{portfolioData.bio.map((paragraph, index) => (
+				<Reveal key={index} delay={210 + index * 40}>
+					<p className="mt-5 max-w-2xl text-[0.9375rem] leading-relaxed text-ink-2">
+						{paragraph}
+					</p>
+				</Reveal>
+			))}
 
 			<Reveal delay={260}>
 				<div className="mt-9 flex flex-wrap items-center gap-3">
@@ -85,7 +87,7 @@ export default function Hero() {
 					className="mono mt-16 inline-flex items-center gap-2 text-xs tracking-wider text-ink-3 transition-colors hover:text-accent"
 				>
 					<ArrowDown className="h-3.5 w-3.5" />
-					SCROLL TO EXPLORE — YOU EARN XP FOR IT
+					SCROLL AROUND. YOU GET XP FOR IT
 				</a>
 			</Reveal>
 		</section>

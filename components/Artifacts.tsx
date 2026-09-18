@@ -18,7 +18,7 @@ export default function Artifacts() {
 			<SectionHeading
 				index="03 / ARTIFACTS"
 				title="Projects"
-				blurb="Three things I built end to end. Rarity is assigned by how hard they were to get right, not by how they look."
+				blurb="Three projects I built end to end. Rarity here means how hard they were to get right, not how they look."
 				meta={`${portfolioData.artifacts.length} items`}
 			/>
 
@@ -89,7 +89,7 @@ function ArtifactCard({
 					{artifact.summary}
 				</p>
 
-				{/* Headline numbers — always visible, they do the selling. */}
+				{/* Headline numbers stay visible. They do the selling. */}
 				<dl className="mt-5 grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-line bg-line sm:grid-cols-4">
 					{artifact.readouts.map((readout) => (
 						<div key={readout.label} className="bg-surface-2 px-3 py-2.5">

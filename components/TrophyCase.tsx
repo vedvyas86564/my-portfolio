@@ -9,17 +9,13 @@ import { useGame } from "@/components/GameProvider";
 export default function TrophyCase() {
 	const { unlock } = useGame();
 
-	const legendaryCount = portfolioData.trophies.filter(
-		(t) => t.rarity === "legendary",
-	).length;
-
 	return (
 		<section id="trophies" className="scroll-mt-24 py-20">
 			<SectionHeading
 				index="05 / TROPHY CASE"
 				title="Earned"
-				blurb="These ones aren't unlocked by scrolling — they already happened."
-				meta={`${legendaryCount} legendary`}
+				blurb="You can't unlock these by scrolling. They already happened."
+				meta={`${portfolioData.trophies.length} earned`}
 			/>
 
 			<div className="grid gap-3 sm:grid-cols-2">

@@ -139,7 +139,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
 			try {
 				localStorage.setItem(THEME_KEY, next);
 			} catch {
-				/* private mode — the theme just won't persist */
+				/* private mode, so the theme just won't persist */
 			}
 			return next;
 		});
@@ -168,7 +168,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
 					}
 				}
 			} catch {
-				/* corrupt or unavailable storage — start fresh */
+				/* corrupt or unavailable storage, so start fresh */
 			}
 
 			const stored = document.documentElement.dataset.theme;
@@ -189,7 +189,7 @@ export function GameProvider({ children }: { children: React.ReactNode }) {
 		try {
 			localStorage.setItem(STORAGE_KEY, JSON.stringify(unlocked));
 		} catch {
-			/* nothing to do — progress is cosmetic */
+			/* nothing to do here, progress is only cosmetic */
 		}
 	}, [unlocked, hydrated]);
 

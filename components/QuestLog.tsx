@@ -24,7 +24,7 @@ export default function QuestLog() {
 			<SectionHeading
 				index="02 / QUEST LOG"
 				title="Experience"
-				blurb="Two active quests. The objectives are the work, verbatim — numbers included."
+				blurb="Two roles, both current. The objectives are what I actually did, numbers and all."
 				meta={`${portfolioData.quests.length} active`}
 			/>
 

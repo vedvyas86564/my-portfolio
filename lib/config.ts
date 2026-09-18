@@ -4,60 +4,63 @@ const PORTFOLIO_DATA: Portfolio = {
 	name: "Ved Vyas",
 	handle: "vedvyas86564",
 	className: "AI / Backend Engineer",
-	tagline: "I build retrieval systems that can explain themselves.",
+	tagline: "I build search systems that can show their work.",
 	location: "Los Angeles, CA",
 	email: "vedvyas07@g.ucla.edu",
-	status: "Open to SWE / AI internships — Summer 2027",
-	bio: "CS at UCLA Samueli, building the ranked-matching and embedding services behind UCLA's Student Innovation Hub. I like the unglamorous half of AI: schema design, index tuning, and the logging that catches a regression nothing else reports. Most recently I wrote a decoder-only transformer from scratch in JAX, and won LAHacks 2026 with a real-time camera platform built in 36 hours.",
+	status: "Looking for a SWE or AI internship, Summer 2027",
+	bio: [
+		"I'm a CS student at UCLA. Most of what I do right now is the matching and embedding service behind the Student Innovation Hub, which is less exciting than it sounds. It's schema design and index tuning, plus a lot of logging.",
+		"Last summer I wrote a decoder-only transformer from scratch in JAX because I wanted to see where the math actually happens. In April my team won LAHacks with a camera platform we put together in 36 hours.",
+	],
 
 	links: [
 		{ name: "GitHub", url: "https://github.com/vedvyas86564", label: "vedvyas86564" },
 		{ name: "LinkedIn", url: "https://linkedin.com/in/vedvyas07", label: "vedvyas07" },
 	],
 
-	// Each number is backed by something real — the evidence string is the receipt.
+	// Each number is backed by something real. The evidence string is the receipt.
 	stats: [
 		{
 			key: "retrieval",
 			label: "Retrieval & Search",
 			value: 92,
 			evidence:
-				"1,024-d Titan embeddings in Postgres/pgvector, IVFFlat tuning, and a 4,149-embedding RAG index served at top-10.",
+				"Titan embeddings at 1,024 dimensions, kept in Postgres with pgvector. I tuned the IVFFlat index and built a RAG index of 4,149 embeddings that serves top-10 results.",
 		},
 		{
 			key: "backend",
 			label: "Backend & APIs",
 			value: 88,
 			evidence:
-				"Documented REST service returning ranked cards with scores, matched tags and reasons — 5.66 ms median server-side.",
+				"A documented REST service that hands back ranked cards with scores and the reasons behind them. Median response is 5.66 ms.",
 		},
 		{
 			key: "observability",
 			label: "Debugging & Observability",
 			value: 86,
 			evidence:
-				"Caught a silent retrieval regression that threw zero errors, using query-level latency and recall logging I had added myself.",
+				"I caught a retrieval bug that threw no errors at all. The only reason I found it was logging I had already added for latency and recall.",
 		},
 		{
 			key: "ml",
 			label: "AI / ML Systems",
 			value: 84,
 			evidence:
-				"10.65M-parameter decoder-only transformer written by hand in JAX — every layer, no framework abstractions.",
+				"A decoder-only transformer with 10.65M parameters, written by hand in JAX. No framework doing the hard parts for me.",
 		},
 		{
 			key: "infra",
 			label: "Systems & Infra",
 			value: 80,
 			evidence:
-				"AWS RDS, nginx behind TLS, Docker, Linux deploys, and WebSocket fan-out holding sub-3s latency under concurrent streams.",
+				"AWS RDS, nginx behind TLS, Docker, Linux deploys. I also held WebSocket fan-out under 3 seconds with several streams running at once.",
 		},
 		{
 			key: "leadership",
 			label: "Leadership & Teaching",
 			value: 90,
 			evidence:
-				"Designed a nine-week AI systems curriculum for a 50-fellow cohort, and helped run the mentorship program pairing 50+ students with alumni mentors.",
+				"I wrote a nine-week AI systems curriculum for a 50-fellow cohort. I also help run the mentorship program that pairs 50+ students with alumni mentors.",
 		},
 	],
 
@@ -67,26 +70,26 @@ const PORTFOLIO_DATA: Portfolio = {
 			role: "AI / Backend Engineer",
 			org: "UCLA Division of Technology Services",
 			orgNote: "Student Innovation Hub",
-			date: "Apr 2026 — Present",
+			date: "Apr 2026 to now",
 			location: "Los Angeles, CA",
 			status: "active",
 			summary:
-				"Own the matching and embedding services that connect students to live university projects — and the observability that keeps them honest.",
+				"I own the matching and embedding services that connect students to real university projects, plus the logging that keeps them honest.",
 			objectives: [
 				{
-					text: "Replaced manual review with automated ranked matching across 40+ live projects and 30 departments, designing a hybrid scoring model (0.40 problem area, 0.25 skill need, 0.20 semantic, 0.15 readiness) that returns every match with a transparent score breakdown.",
+					text: "Matching used to happen by hand. I replaced it with a ranked model covering 40+ live projects and 30 departments. It weighs problem area at 0.40, skill need at 0.25, semantic similarity at 0.20, and readiness at 0.15, and every match comes back with that breakdown attached so nobody has to guess why they got it.",
 					metric: "5.66 ms median",
 				},
 				{
-					text: "Automated indexing of every new project by building the embedding service on AWS: 1,024-dimensional Titan embeddings written to PostgreSQL/RDS with pgvector, plus an idempotent backfill script that skips unchanged records.",
+					text: "New projects index themselves now. I built the embedding service on AWS, writing 1,024-dimensional Titan embeddings into Postgres on RDS with pgvector. There's a backfill script too, and it skips records that haven't changed, so you can run it twice without breaking anything.",
 					metric: "1,024-d embeddings",
 				},
 				{
-					text: "Diagnosed a silent retrieval regression that threw no errors, tracing it to an IVFFlat index configured with 100 lists over only 37 vectors. Found it only because I had added query-level latency and recall logging — then added a check that ties list count to table size.",
+					text: "One regression threw no errors at all. Results just quietly got worse. It turned out the IVFFlat index was set to 100 lists over 37 vectors. I only caught it because I had added latency and recall logging, and now there's a check that ties list count to how big the table actually is.",
 					metric: "100 lists / 37 vectors",
 				},
 				{
-					text: "Unblocked the platform team from scoring internals by shipping the service as a documented REST API returning ranked cards with scores, matched tags and reasons, delivered in two-week Agile sprints against a product lead's priorities.",
+					text: "The platform team kept getting stuck waiting on scoring internals, so I shipped the whole thing as a documented REST API that returns ranked cards with scores, matched tags, and reasons. Two-week sprints, against whatever the product lead had prioritized.",
 				},
 			],
 			tags: ["Python", "PostgreSQL", "pgvector", "AWS", "REST APIs", "Agile"],
@@ -96,18 +99,18 @@ const PORTFOLIO_DATA: Portfolio = {
 			role: "Partnership Lead & AI Curriculum Co-Lead",
 			org: "Bruin Software Engineers",
 			orgNote: "300+ member student engineering org",
-			date: "Jan 2026 — Present",
+			date: "Jan 2026 to now",
 			location: "Los Angeles, CA",
 			status: "active",
 			summary:
-				"Teach the internals of transformers to people who have never trained a model — and connect them with the alumni who already have.",
+				"I teach transformers to people who have never trained a model, and help connect them with alumni who have.",
 			objectives: [
 				{
-					text: "Teach transformer internals from first principles — tokenization, attention and parameter counting — to 8 fellows with no ML background, through a nine-week AI systems curriculum I designed for BSE's 50-fellow Fall 2026 Tech Fellowship.",
+					text: "I teach transformer internals to 8 fellows who came in having never touched ML. We start at tokenization and work up through attention and parameter counting. It's part of a nine-week AI systems curriculum I wrote for BSE's 50-fellow Fall 2026 Tech Fellowship.",
 					metric: "9-week curriculum",
 				},
 				{
-					text: "Helped run the mentorship program that paired 50+ students with alumni mentors, matching participants on technical interest, career goals and industry background.",
+					text: "I help run the mentorship program. It pairs 50+ students with alumni mentors, matched on technical interest, career goals, and industry background.",
 					metric: "50+ students paired",
 				},
 			],
@@ -124,18 +127,18 @@ const PORTFOLIO_DATA: Portfolio = {
 			date: "Apr 2026",
 			stack: ["Python", "FastAPI", "WebSockets", "MongoDB", "Linux", "nginx"],
 			summary:
-				"A camera platform that ingests live streams, surfaces candidate events in under three seconds, and proves nothing was tampered with — without ever making the footage public.",
+				"A camera platform that reads live streams and flags events in under three seconds. It can also prove nothing was tampered with, and the footage still never goes public.",
 			highlights: [
 				{
-					text: "Won LAHacks 2026 against 300+ teams and 1,000+ hackers by shipping a working real-time platform in 36 hours that ingested RTSP, MJPEG and HTTP streams.",
+					text: "We won LAHacks 2026 against 300+ teams and more than 1,000 hackers. The thing actually worked by the end of the 36 hours, reading RTSP, MJPEG, and HTTP streams.",
 					metric: "1st / 300+ teams",
 				},
 				{
-					text: "Held sub-3-second latency under concurrent streams by owning the backend microservices: FastAPI, WebSocket fan-out, a dual-transport stream manager, a 60-frame rolling buffer and a 4-stage event pipeline, deployed on Linux behind nginx with TLS.",
+					text: "I owned the backend microservices and kept latency under 3 seconds with several streams going at once. That meant FastAPI, WebSocket fan-out, a dual-transport stream manager, a 60-frame rolling buffer, and a 4-stage event pipeline, all running on Linux behind nginx with TLS.",
 					metric: "< 3s end-to-end",
 				},
 				{
-					text: "Kept footage private while preserving tamper-evidence, writing only SHA-256 event hashes to a public ledger and holding video in private storage.",
+					text: "Video stays in private storage. Only SHA-256 event hashes go to the public ledger, so anyone can check that nothing was altered without ever watching the footage.",
 				},
 			],
 			readouts: [
@@ -150,17 +153,17 @@ const PORTFOLIO_DATA: Portfolio = {
 			title: "Decoder-Only Transformer",
 			subtitle: "Written from scratch in JAX",
 			rarity: "epic",
-			date: "Jul — Aug 2026",
+			date: "Jul to Aug 2026",
 			stack: ["JAX", "NumPy", "Python"],
 			summary:
-				"No Hugging Face, no Flax, no nn.Module. Every layer implemented by hand to find out exactly where the arithmetic lives.",
+				"No Hugging Face. No Flax. I wrote every layer myself because I wanted to know exactly where the arithmetic happens.",
 			highlights: [
 				{
-					text: "Hit 99% accuracy on 3-digit addition with a 10.65M-parameter decoder-only transformer, implementing the architecture and training loop myself in JAX with no high-level framework abstractions: 6 layers, 6 attention heads, d_model 384.",
+					text: "10.65M parameters, 6 layers, 6 attention heads, d_model 384. It gets 99% on 3-digit addition. I wrote the architecture and the training loop myself in JAX, with nothing high-level doing the work for me.",
 					metric: "99% accuracy",
 				},
 				{
-					text: "Wrote every layer by hand — tokenization, positional encoding, layer normalization and residual connections — then vectorized attention and loss computation with jax.jit in place of Python-level loops.",
+					text: "Every layer is by hand, including tokenization, positional encoding, layer normalization, and residual connections. Then I threw out the Python-level loops and vectorized attention and loss with jax.jit.",
 					metric: "10.65M params",
 				},
 			],
@@ -176,17 +179,17 @@ const PORTFOLIO_DATA: Portfolio = {
 			title: "Team Memory Engine",
 			subtitle: "RAG search over team history",
 			rarity: "rare",
-			date: "Jan — Mar 2026",
+			date: "Jan to Mar 2026",
 			stack: ["Python", "FastAPI", "PostgreSQL", "pgvector", "React"],
 			summary:
-				"Every answer traces back to the message it came from — the retrieval layer is the product, not a black box behind it.",
+				"Every answer points back to the message it came from. The retrieval layer is the product here, not a black box sitting behind one.",
 			highlights: [
 				{
-					text: "Made 7,477 messages searchable across Slack and GitHub history by parsing 392 threads into chunked documents and generating 4,149 embeddings, served via top-10 semantic retrieval over a 4-table schema with an IVFFlat index.",
+					text: "7,477 messages across Slack and GitHub, all searchable. I parsed 392 threads into chunked documents and generated 4,149 embeddings, served as top-10 semantic retrieval over a 4-table schema with an IVFFlat index.",
 					metric: "7,477 messages",
 				},
 				{
-					text: "Cited every answer back to its source messages by wiring a React interface to 6 FastAPI endpoints for ingestion, query, listing and extraction.",
+					text: "Every answer cites the messages it came from. The React front end talks to 6 FastAPI endpoints covering ingestion, query, listing, and extraction.",
 					metric: "6 endpoints",
 				},
 			],
@@ -203,13 +206,13 @@ const PORTFOLIO_DATA: Portfolio = {
 		{
 			id: "languages",
 			name: "Languages",
-			blurb: "Where the work gets typed out.",
+			blurb: "What I actually type in.",
 			skills: ["Python", "Java", "C/C++", "JavaScript", "TypeScript", "SQL", "HTML/CSS"],
 		},
 		{
 			id: "systems",
 			name: "Systems & Infrastructure",
-			blurb: "Getting it to run somewhere other than my laptop.",
+			blurb: "Getting it running somewhere that isn't my laptop.",
 			skills: [
 				"Unix/Linux",
 				"AWS (RDS, Titan)",
@@ -225,7 +228,7 @@ const PORTFOLIO_DATA: Portfolio = {
 		{
 			id: "data",
 			name: "Data & Storage",
-			blurb: "The layer most retrieval bugs actually live in.",
+			blurb: "Where most of my retrieval bugs turn out to live.",
 			skills: [
 				"PostgreSQL",
 				"pgvector",
@@ -237,7 +240,7 @@ const PORTFOLIO_DATA: Portfolio = {
 		{
 			id: "ai",
 			name: "AI / ML & Retrieval",
-			blurb: "Built from the primitives up, not the API down.",
+			blurb: "Built up from the primitives, not down from an API.",
 			skills: [
 				"Transformers",
 				"Embeddings",
@@ -269,7 +272,7 @@ const PORTFOLIO_DATA: Portfolio = {
 			id: "lahacks",
 			title: "LAHacks 2026 Champion",
 			detail:
-				"First place against 300+ teams and 1,000+ hackers, with a real-time camera platform built in 36 hours.",
+				"First out of 300+ teams and more than 1,000 hackers. We built a working real-time camera platform in 36 hours.",
 			date: "Apr 2026",
 			rarity: "legendary",
 		},
@@ -277,7 +280,7 @@ const PORTFOLIO_DATA: Portfolio = {
 			id: "mentorship",
 			title: "Mentorship at Scale",
 			detail:
-				"Helped run the Bruin Software Engineers mentorship program, pairing 50+ students with alumni mentors on technical interest, career goals and industry background.",
+				"I help run the Bruin Software Engineers mentorship program. It pairs 50+ students with alumni mentors based on technical interest, career goals, and industry background.",
 			date: "2026",
 			rarity: "epic",
 		},
@@ -285,7 +288,7 @@ const PORTFOLIO_DATA: Portfolio = {
 			id: "ghost-index",
 			title: "Ghost in the Index",
 			detail:
-				"Found a retrieval regression that threw no errors at all: an IVFFlat index with 100 lists over 37 vectors. Only the latency and recall logging exposed it.",
+				"A retrieval bug that threw no errors. The IVFFlat index had 100 lists sitting over 37 vectors. Only the latency and recall logging gave it away.",
 			date: "2026",
 			rarity: "epic",
 		},
@@ -293,7 +296,7 @@ const PORTFOLIO_DATA: Portfolio = {
 			id: "from-scratch",
 			title: "99% From Scratch",
 			detail:
-				"A 10.65M-parameter decoder-only transformer in JAX, hand-written down to the layer norm, hitting 99% on 3-digit addition.",
+				"10.65M parameters in JAX, written by hand down to the layer norm. 99% on 3-digit addition.",
 			date: "Aug 2026",
 			rarity: "epic",
 		},
@@ -301,7 +304,7 @@ const PORTFOLIO_DATA: Portfolio = {
 			id: "median",
 			title: "5.66 ms Median",
 			detail:
-				"Hybrid ranked matching across 40+ projects and 30 departments — and every score comes back explainable.",
+				"Ranked matching across 40+ projects and 30 departments, and you can still see why any given score came out the way it did.",
 			date: "2026",
 			rarity: "epic",
 		},
@@ -309,7 +312,7 @@ const PORTFOLIO_DATA: Portfolio = {
 			id: "curriculum",
 			title: "Curriculum Author",
 			detail:
-				"Designed a nine-week AI systems curriculum for a 50-fellow cohort, teaching transformer internals to 8 fellows with no ML background.",
+				"A nine-week AI systems curriculum for a 50-fellow cohort. I teach the transformer internals to 8 fellows who arrived with no ML background.",
 			date: "2026",
 			rarity: "rare",
 		},
@@ -324,7 +327,7 @@ const PORTFOLIO_DATA: Portfolio = {
 			id: "indexed",
 			title: "7,477 Messages Indexed",
 			detail:
-				"392 threads parsed into 4,149 embeddings, every answer cited back to the message it came from.",
+				"392 threads turned into 4,149 embeddings, with every answer pointing back to the message it came from.",
 			date: "Mar 2026",
 			rarity: "rare",
 		},
@@ -357,15 +360,15 @@ const PORTFOLIO_DATA: Portfolio = {
 	// Unlocked by the visitor as they explore. Kept light on purpose.
 	achievements: [
 		{ id: "boot", title: "Boot Sequence", hint: "Load the page.", xp: 10 },
-		{ id: "stats", title: "Read the Build", hint: "Look at the attribute block.", xp: 15 },
+		{ id: "stats", title: "Read the Build", hint: "Get down to the stats.", xp: 15 },
 		{ id: "quests", title: "Quest Log Opened", hint: "Reach the experience section.", xp: 20 },
-		{ id: "artifacts", title: "Artifact Inspected", hint: "Reach the projects section.", xp: 20 },
+		{ id: "artifacts", title: "Artifact Inspected", hint: "Reach the projects.", xp: 20 },
 		{ id: "tree", title: "Skill Tree Traversed", hint: "Reach the skill tree.", xp: 25 },
 		{ id: "trophies", title: "Trophy Case Viewed", hint: "Reach the trophy case.", xp: 25 },
-		{ id: "deep-dive", title: "Deep Dive", hint: "Expand a quest or an artifact.", xp: 30 },
+		{ id: "deep-dive", title: "Deep Dive", hint: "Open up a quest or a project.", xp: 30 },
 		{ id: "theme", title: "Light Switch", hint: "Flip the theme.", xp: 15, secret: true },
 		{ id: "konami", title: "↑ ↑ ↓ ↓ ← → ← → B A", hint: "You know the one.", xp: 60, secret: true },
-		{ id: "cleared", title: "100% Cleared", hint: "Visit every section on the map.", xp: 80 },
+		{ id: "cleared", title: "100% Cleared", hint: "Visit every section.", xp: 80 },
 	],
 
 	levels: [

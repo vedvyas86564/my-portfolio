@@ -87,7 +87,7 @@ export type Portfolio = {
 	location: string;
 	email: string;
 	status: string;
-	bio: string;
+	bio: string[];
 	links: { name: string; url: string; label: string }[];
 	stats: Stat[];
 	quests: Quest[];

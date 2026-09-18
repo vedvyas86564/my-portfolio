@@ -15,10 +15,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: `${portfolioData.name} — ${portfolioData.className}`,
+	title: `${portfolioData.name}, ${portfolioData.className}`,
 	description: portfolioData.tagline,
 	openGraph: {
-		title: `${portfolioData.name} — ${portfolioData.className}`,
+		title: `${portfolioData.name}, ${portfolioData.className}`,
 		description: portfolioData.tagline,
 		type: "website",
 	},

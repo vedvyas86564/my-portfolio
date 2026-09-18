@@ -16,7 +16,7 @@ export default function StatBlock() {
 			<SectionHeading
 				index="01 / ATTRIBUTES"
 				title="The build"
-				blurb="Six attributes, each one backed by something that actually shipped. Hover or tap a row for the receipt."
+				blurb="Six numbers I gave myself. Tap any row and you get the thing that backs it up."
 				meta={`${portfolioData.stats.length} stats`}
 			/>
 

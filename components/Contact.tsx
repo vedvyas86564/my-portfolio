@@ -22,7 +22,7 @@ export default function Contact() {
 			setCopied(true);
 			setTimeout(() => setCopied(false), 2000);
 		} catch {
-			/* clipboard blocked — the mailto link still works */
+			/* clipboard blocked, but the mailto link still works */
 		}
 	}
 
@@ -36,7 +36,7 @@ export default function Contact() {
 						<span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
 						<span className="h-2.5 w-2.5 rounded-full bg-line-strong" />
 						<span className="mono ml-2 text-[0.625rem] tracking-wider text-ink-3">
-							contact — bash
+							contact.sh
 						</span>
 					</div>
 
@@ -61,17 +61,17 @@ export default function Contact() {
 								<span className="text-lime">➜</span> ~ cat .secret
 							</p>
 							<p className="mono mt-1 text-[0.8125rem] text-lime">
-								konami accepted. you read the whole page — that already puts you ahead of
-								most recruiters. say hi and mention &quot;up up down down&quot;.
+								konami accepted. you read the whole page, which is more than most people
+								do. say hi and mention up up down down.
 							</p>
 						</div>
 
 						<h2 className="mt-9 text-2xl font-semibold tracking-tight text-ink sm:text-3xl">
-							Let&apos;s build something.
+							Say hi.
 						</h2>
 						<p className="mt-3 max-w-lg text-[0.9375rem] leading-relaxed text-ink-2">
-							I&apos;m looking for software engineering and AI internships for Summer 2027 —
-							and I&apos;ll happily talk about index tuning with anyone who asks.
+							I&apos;m looking for a software engineering or AI internship for Summer 2027.
+							I&apos;ll also happily talk about index tuning with anyone who asks.
 						</p>
 
 						<div className="mt-7 flex flex-wrap items-center gap-3">

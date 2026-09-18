@@ -1,48 +1,48 @@
-# Ved Vyas — Portfolio
+# Ved Vyas, portfolio
 
-A personal site with a game layer: a clean, typography-led base with an XP bar,
-unlockable achievements and a trophy case built out of real accomplishments.
+My personal site. It's a normal portfolio with a game layer sitting on top of it,
+so there's an XP bar, a set of achievements you unlock by scrolling around, and a
+trophy case built out of things that actually happened.
 
-Live: https://my-portfolio-xi-azure-53.vercel.app
+Live at https://ved-vyas.vercel.app
 
 ## Stack
 
-Next.js 16 (App Router) · React 19 · Tailwind CSS v4 · lucide-react.
-No other runtime dependencies — every animation is hand-rolled CSS plus
-`IntersectionObserver`.
+Next.js, React, Tailwind, and lucide-react for icons. Nothing else at runtime.
+Every animation is hand-written CSS plus `IntersectionObserver`.
 
-## Editing the content
+## Changing the content
 
-Everything on the page comes from one file: [`lib/config.ts`](lib/config.ts).
-Types live in [`lib/types.ts`](lib/types.ts). Changing a bullet, adding a
-project, or adding a trophy means editing that config — no component changes.
+All of it lives in one file, [`lib/config.ts`](lib/config.ts), with the types in
+[`lib/types.ts`](lib/types.ts). Adding a project or rewriting a bullet means
+editing that config. You shouldn't need to touch a component.
 
-| Field        | Drives                                        |
-| ------------ | --------------------------------------------- |
-| `stats`      | The attribute block (bar + evidence on hover) |
-| `quests`     | Experience, as an expandable quest log        |
-| `artifacts`  | Projects, with rarity tiers and stat readouts |
-| `skillTree`  | The skill tree branches                       |
-| `trophies`   | The trophy case                               |
-| `education`  | The loadout section                           |
-| `achievements` / `levels` | The visitor XP system            |
+| Field | What it drives |
+| --- | --- |
+| `stats` | The attribute block, where each bar opens to the evidence behind it |
+| `quests` | Experience, as a quest log you can expand |
+| `artifacts` | Projects, with rarity tiers and a strip of headline numbers |
+| `skillTree` | The skill tree branches |
+| `trophies` | The trophy case |
+| `education` | The loadout section |
+| `achievements`, `levels` | The visitor XP system |
 
 ## The game layer
 
-- **XP and levels** — visitors earn XP for exploring; progress persists in
-  `localStorage` and survives a reload.
-- **Achievements** — ten of them, two secret. The trophy chip in the header
-  opens the full list.
-- **Konami code** — `↑ ↑ ↓ ↓ ← → ← → B A` unlocks dev mode, which reveals
-  anything marked `.dev-only`.
-- **Theme** — dark by default, light on toggle, applied before first paint by a
-  small inline script so there is no flash.
+Visitors earn XP for exploring. Progress is saved to `localStorage`, so it
+survives a reload. There are ten achievements and two of them are hidden. The
+trophy chip up in the header opens the full list.
 
-Everything degrades: with JavaScript off, the inline script never sets
-`data-motion`, so every section renders visible rather than stuck at
-`opacity: 0`.
+The Konami code turns on dev mode, which reveals anything marked `.dev-only`.
 
-## Development
+Dark theme by default, light if you toggle it. A small inline script applies the
+saved theme before the first paint so you never see the wrong one flash.
+
+That same script sets `data-motion`, which is what gates the scroll animations.
+If JavaScript is off, the flag never gets set and every section just renders
+visible instead of sitting at `opacity: 0` forever.
+
+## Running it
 
 ```bash
 npm install
@@ -50,5 +50,5 @@ npm run dev
 ```
 
 ```bash
-npm run build && npm run lint
+npm run build && npx eslint .
 ```

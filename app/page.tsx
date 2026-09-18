@@ -34,8 +34,8 @@ export default function Home() {
 						© {new Date().getFullYear()} {portfolioData.name}
 					</p>
 					<p className="mono text-[0.6875rem] text-ink-3">
-						Next.js · Tailwind · no analytics ·{" "}
-						<span className="text-ink-3/70">try the konami code</span>
+						Built with Next.js and Tailwind. No analytics.{" "}
+						<span className="text-ink-3/70">Try the konami code.</span>
 					</p>
 				</div>
 			</footer>
