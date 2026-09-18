@@ -1,26 +1,267 @@
 @import "tailwindcss";
 
+/* ============================================================
+   Design tokens — dark is the default, light is opt-in via
+   data-theme="light" on <html>.
+   ============================================================ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	color-scheme: dark;
+
+	--c-canvas: #07080b;
+	--c-surface: #0c0e13;
+	--c-surface-2: #11141b;
+	--c-line: #1c212b;
+	--c-line-strong: #2c3342;
+	--c-ink: #f3f5f9;
+	--c-ink-2: #a5adbc;
+	--c-ink-3: #697182;
+
+	--c-accent: #4ee1ff;
+	--c-accent-ink: #07080b;
+	--c-accent-soft: rgb(78 225 255 / 0.12);
+	--c-violet: #a78bfa;
+	--c-gold: #ffc861;
+	--c-lime: #86efac;
+
+	--c-grid: rgb(255 255 255 / 0.028);
+	--c-glow: rgb(78 225 255 / 0.16);
+	--shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 12px 32px -18px rgb(0 0 0 / 0.8);
+}
+
+:root[data-theme="light"] {
+	color-scheme: light;
+
+	--c-canvas: #fbfbfd;
+	--c-surface: #ffffff;
+	--c-surface-2: #f4f5f8;
+	--c-line: #e4e6ec;
+	--c-line-strong: #cfd3dd;
+	--c-ink: #0d1117;
+	--c-ink-2: #4a5263;
+	--c-ink-3: #767e8f;
+
+	--c-accent: #0e7490;
+	--c-accent-ink: #ffffff;
+	--c-accent-soft: rgb(14 116 144 / 0.09);
+	--c-violet: #7c3aed;
+	--c-gold: #b45309;
+	--c-lime: #15803d;
+
+	--c-grid: rgb(13 17 23 / 0.032);
+	--c-glow: rgb(14 116 144 / 0.12);
+	--shadow-card: 0 1px 2px rgb(13 17 23 / 0.04), 0 12px 28px -20px rgb(13 17 23 / 0.28);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
+
+	--color-canvas: var(--c-canvas);
+	--color-surface: var(--c-surface);
+	--color-surface-2: var(--c-surface-2);
+	--color-line: var(--c-line);
+	--color-line-strong: var(--c-line-strong);
+	--color-ink: var(--c-ink);
+	--color-ink-2: var(--c-ink-2);
+	--color-ink-3: var(--c-ink-3);
+	--color-accent: var(--c-accent);
+	--color-accent-ink: var(--c-accent-ink);
+	--color-accent-soft: var(--c-accent-soft);
+	--color-violet: var(--c-violet);
+	--color-gold: var(--c-gold);
+	--color-lime: var(--c-lime);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================================
+   Base
+   ============================================================ */
+* {
+	border-color: var(--c-line);
+}
+
+html {
+	scroll-behavior: smooth;
+	scroll-padding-top: 6rem;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Geist', sans-serif;
+	background-color: var(--c-canvas);
+	color: var(--c-ink);
+	font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	overflow-x: hidden;
+}
+
+/* Faint blueprint grid + a single soft light source behind the hero. */
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -2;
+	background-image:
+		linear-gradient(var(--c-grid) 1px, transparent 1px),
+		linear-gradient(90deg, var(--c-grid) 1px, transparent 1px);
+	background-size: 56px 56px;
+	mask-image: radial-gradient(ellipse 100% 70% at 50% 0%, #000 35%, transparent 78%);
+	pointer-events: none;
+}
+
+body::after {
+	content: "";
+	position: fixed;
+	top: -22rem;
+	left: 50%;
+	width: 60rem;
+	height: 42rem;
+	margin-left: -30rem;
+	z-index: -1;
+	background: radial-gradient(circle, var(--c-glow) 0%, transparent 62%);
+	pointer-events: none;
+}
+
+::selection {
+	background: var(--c-accent);
+	color: var(--c-accent-ink);
+}
+
+:focus-visible {
+	outline: 2px solid var(--c-accent);
+	outline-offset: 3px;
+	border-radius: 4px;
+}
+
+/* ============================================================
+   Reveal on scroll
+   ============================================================ */
+/* Content starts visible. It is only hidden for the animation once the
+   inline head script confirms IntersectionObserver exists, so the page
+   still reads correctly with JavaScript disabled. */
+:root[data-motion="on"] .reveal {
+	opacity: 0;
+	transform: translateY(18px);
+	transition: opacity 0.62s cubic-bezier(0.22, 1, 0.36, 1),
+		transform 0.62s cubic-bezier(0.22, 1, 0.36, 1);
+	transition-delay: var(--reveal-delay, 0ms);
+}
+
+:root[data-motion="on"] .reveal.is-in {
+	opacity: 1;
+	transform: none;
+}
+
+/* ============================================================
+   Keyframes
+   ============================================================ */
+@keyframes toast-in {
+	0% { opacity: 0; transform: translateY(14px) scale(0.96); }
+	60% { transform: translateY(-2px) scale(1.01); }
+	100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes sheen {
+	0% { transform: translateX(-120%); }
+	100% { transform: translateX(320%); }
+}
+
+@keyframes blip {
+	0%, 100% { opacity: 1; transform: scale(1); }
+	50% { opacity: 0.35; transform: scale(0.82); }
+}
+
+@keyframes toast-timer {
+	0% { transform: scaleX(1); }
+	100% { transform: scaleX(0); }
+}
+
+@keyframes caret {
+	0%, 49% { opacity: 1; }
+	50%, 100% { opacity: 0; }
+}
+
+@keyframes float-up {
+	0% { opacity: 0; transform: translateY(6px); }
+	100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-toast-in { animation: toast-in 0.42s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.animate-toast-timer {
+	transform-origin: left;
+	animation: toast-timer 4.2s linear forwards;
+}
+.animate-blip { animation: blip 1.9s ease-in-out infinite; }
+.animate-caret { animation: caret 1.1s step-end infinite; }
+.animate-float-up { animation: float-up 0.4s ease-out both; }
+
+/* Light sweep across the XP bar while it is filling. */
+.xp-sheen::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	width: 40%;
+	background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.5), transparent);
+	animation: sheen 2.6s ease-in-out infinite;
+}
+
+/* ============================================================
+   Utility classes used across components
+   ============================================================ */
+.card {
+	background-color: var(--c-surface);
+	border: 1px solid var(--c-line);
+	border-radius: 14px;
+	box-shadow: var(--shadow-card);
+	transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-hover:hover {
+	border-color: var(--c-line-strong);
+	transform: translateY(-3px);
+}
+
+.mono {
+	font-family: var(--font-geist-mono), ui-monospace, monospace;
+	font-variant-ligatures: none;
+}
+
+.label {
+	font-family: var(--font-geist-mono), ui-monospace, monospace;
+	font-size: 0.6875rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--c-ink-3);
+}
+
+.hairline {
+	height: 1px;
+	background: linear-gradient(90deg, var(--c-line-strong), transparent);
+}
+
+/* Dev mode — unlocked by the Konami code, reveals the raw numbers. */
+.dev-only { display: none; }
+:root[data-dev="on"] .dev-only { display: revert; }
+
+/* ============================================================
+   Motion preferences
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+	html { scroll-behavior: auto; }
+
+	:root[data-motion="on"] .reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+
+	.animate-toast-in,
+	.animate-toast-timer,
+	.animate-blip,
+	.animate-caret,
+	.animate-float-up,
+	.xp-sheen::after {
+		animation: none;
+	}
+
+	*, *::before, *::after {
+		transition-duration: 0.01ms !important;
+	}
 }

@@ -15,9 +15,21 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-	title: `${portfolioData.name}'s Personal Website`,
-	description: `All about ${portfolioData.name}`,
+	title: `${portfolioData.name} — ${portfolioData.className}`,
+	description: portfolioData.tagline,
+	openGraph: {
+		title: `${portfolioData.name} — ${portfolioData.className}`,
+		description: portfolioData.tagline,
+		type: "website",
+	},
 };
+
+/**
+ * Applies the saved theme before first paint so there is no flash of the
+ * wrong palette, and flags that scroll animations are safe to run. Without
+ * this flag every section renders visible, so the page survives no-JS.
+ */
+const BOOT_SCRIPT = `(function(){var d=document.documentElement;try{if(localStorage.getItem("vv-portfolio-theme")==="light"){d.dataset.theme="light"}}catch(e){}if("IntersectionObserver" in window){d.dataset.motion="on"}})()`;
 
 export default function RootLayout({
 	children,
@@ -25,10 +37,11 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en">
-			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-			>
+		<html lang="en" suppressHydrationWarning>
+			<head>
+				<script dangerouslySetInnerHTML={{ __html: BOOT_SCRIPT }} />
+			</head>
+			<body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
 				{children}
 			</body>
 		</html>
