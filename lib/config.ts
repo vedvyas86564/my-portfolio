@@ -57,7 +57,7 @@ const PORTFOLIO_DATA: Portfolio = {
 			label: "Leadership & Teaching",
 			value: 90,
 			evidence:
-				"Closed a 300+ member org's first corporate sponsor, designed a nine-week AI curriculum, and scaled mentorship to 50+ students.",
+				"Designed a nine-week AI systems curriculum for a 50-fellow cohort, and helped run the mentorship program pairing 50+ students with alumni mentors.",
 		},
 	],
 
@@ -100,22 +100,18 @@ const PORTFOLIO_DATA: Portfolio = {
 			location: "Los Angeles, CA",
 			status: "active",
 			summary:
-				"Teach the internals of transformers to people who have never trained a model — and fund the program that lets them.",
+				"Teach the internals of transformers to people who have never trained a model — and connect them with the alumni who already have.",
 			objectives: [
 				{
 					text: "Teach transformer internals from first principles — tokenization, attention and parameter counting — to 8 fellows with no ML background, through a nine-week AI systems curriculum I designed for BSE's 50-fellow Fall 2026 Tech Fellowship.",
 					metric: "9-week curriculum",
 				},
 				{
-					text: "Closed Jane Street as BSE's first corporate sponsor in org history, by cold-contacting 20+ alumni and industry partners across 20 companies and carrying the pitch through to a signed commitment.",
-					metric: "1st sponsor ever",
-				},
-				{
-					text: "Scaled mentorship to 50+ students by designing a matching process that paired participants with 25 mentors on technical interest, career goals and industry background.",
-					metric: "50+ mentees",
+					text: "Helped run the mentorship program that paired 50+ students with alumni mentors, matching participants on technical interest, career goals and industry background.",
+					metric: "50+ students paired",
 				},
 			],
-			tags: ["Teaching", "Transformers", "Partnerships", "Program Design"],
+			tags: ["Teaching", "Transformers", "Mentorship", "Program Design"],
 		},
 	],
 
@@ -278,12 +274,12 @@ const PORTFOLIO_DATA: Portfolio = {
 			rarity: "legendary",
 		},
 		{
-			id: "jane-street",
-			title: "First Sponsor in Org History",
+			id: "mentorship",
+			title: "Mentorship at Scale",
 			detail:
-				"Closed Jane Street as Bruin Software Engineers' first corporate sponsor — 20+ alumni cold-contacted across 20 companies, carried through to a signed commitment.",
+				"Helped run the Bruin Software Engineers mentorship program, pairing 50+ students with alumni mentors on technical interest, career goals and industry background.",
 			date: "2026",
-			rarity: "legendary",
+			rarity: "epic",
 		},
 		{
 			id: "ghost-index",
