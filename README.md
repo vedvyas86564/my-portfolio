@@ -1,32 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) for the BSE Personal Website workshop.
+# Ved Vyas — Portfolio
 
-## Getting Started
+A personal site with a game layer: a clean, typography-led base with an XP bar,
+unlockable achievements and a trophy case built out of real accomplishments.
 
-First, run the development server:
+Live: https://my-portfolio-xi-azure-53.vercel.app
+
+## Stack
+
+Next.js 16 (App Router) · React 19 · Tailwind CSS v4 · lucide-react.
+No other runtime dependencies — every animation is hand-rolled CSS plus
+`IntersectionObserver`.
+
+## Editing the content
+
+Everything on the page comes from one file: [`lib/config.ts`](lib/config.ts).
+Types live in [`lib/types.ts`](lib/types.ts). Changing a bullet, adding a
+project, or adding a trophy means editing that config — no component changes.
+
+| Field        | Drives                                        |
+| ------------ | --------------------------------------------- |
+| `stats`      | The attribute block (bar + evidence on hover) |
+| `quests`     | Experience, as an expandable quest log        |
+| `artifacts`  | Projects, with rarity tiers and stat readouts |
+| `skillTree`  | The skill tree branches                       |
+| `trophies`   | The trophy case                               |
+| `education`  | The loadout section                           |
+| `achievements` / `levels` | The visitor XP system            |
+
+## The game layer
+
+- **XP and levels** — visitors earn XP for exploring; progress persists in
+  `localStorage` and survives a reload.
+- **Achievements** — ten of them, two secret. The trophy chip in the header
+  opens the full list.
+- **Konami code** — `↑ ↑ ↓ ↓ ← → ← → B A` unlocks dev mode, which reveals
+  anything marked `.dev-only`.
+- **Theme** — dark by default, light on toggle, applied before first paint by a
+  small inline script so there is no flash.
+
+Everything degrades: with JavaScript off, the inline script never sets
+`data-motion`, so every section renders visible rather than stuck at
+`opacity: 0`.
+
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run build && npm run lint
+```
